@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gun Store</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='task.css') }}">
+</head>
+<body>
+    <header>
+        <nav>
+            <h1>Gun Store</h1>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Shop</a></li>
+                <li><a href="ahmedmoghny212@gmail.com">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <h2>Our Arsenal</h2>
+        <div class="product-grid">
+            {% for gun in guns %}
+            <div class="product-card">
+                <img src="{{ url_for('static', filename=gun.image) }}" alt="{{ gun.name }}" >
+                <h3>{{ gun.name }}</h3>
+                <p><strong>Price:</strong> {{ gun.price }}</p>
+                <p>{{ gun.description }}</p>
+                <button>Add to Cart</button>
+            </div>
+            {% endfor %}
+        </div>
+    </main>
+    <footer>
+        <p>&copy; 2024 Gun Store. ahmed moghny.</p>
+    </footer>
+</body>
+</html>
